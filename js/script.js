@@ -14,17 +14,17 @@ function movieData(movie,target,compiled) {
 function searchMovie() {
   var search = $("#movie_search").val();
   console.log(search);
-  var prova = "ritorno al futuro";
-  results(prova);
+  // var prova = "ritorno al futuro";
+  results(search);
 
 }
-function results(prova) {
+function results(search) {
   $.ajax({
     url:"https://api.themoviedb.org/3/search/movie",
     method:"GET",
     data: {
       "api_key":"044d0c2aa05cc2030718c5e50899f07d",
-      "query": prova
+      "query": search
     },
     success: function(data,state){
       var moviesnum = data["total_results"];
