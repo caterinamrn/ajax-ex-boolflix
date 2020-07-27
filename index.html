@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Boolflix</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script  id="movie-template" type="text/x-handlebars-template">
+      <li>
+        <span>Titolo: {{title}}</span>
+        <span>Titolo Originale: {{original_title}}</span>
+        <span>Lingua Originale: {{original_language}}</span>
+        <span>Voto: {{vote_average}}</span>
+      </li>
+    </script>
+  </head>
+  <body>
+    <input id="movie_search" type="text" name="movie" value="" placeholder="search movie">
+    <button id="btn_search" type="button" name="button">Search</button>
+    <ul id="results">
+
+    </ul>
+    <script src="js/script.js" type="text/javascript"></script>
+  </body>
+</html>
