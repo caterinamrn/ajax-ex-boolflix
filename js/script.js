@@ -1,9 +1,14 @@
-function movieData(movie) {
-  var title = movie["title"];
-  var origTitle = movie["original_title"];
-  var lenguage = movie["original_language"];
-  var vote = movie["vote_average"];
-  console.log(title,origTitle,lenguage,vote);
+function movieData(movie,target,compiled) {
+  var moviedata = {
+    "title":movie["title"],
+    "original_title":movie["original_title"],
+    "original_language":movie["original_language"],
+    "vote_average":movie["vote_average"]
+  }
+
+  console.log(moviedata);
+  var moviedataHtml = compiled(moviedata);
+  target.append(moviedataHtml);
 }
 
 function searchMovie() {
@@ -26,11 +31,13 @@ function results(prova) {
       var movies = data["results"];
 
       console.log(moviesnum);
+      var template = $("#movie-template").html();
+      var compiled = Handlebars.compile(template);
+      var target = $("#results");
+
       for (var i = 0; i < movies.length; i++) {
         var movie = movies[i];
-        // var title = movie["title"];
-        // console.log(title);
-        movieData(movie);
+        movieData(movie,target,compiled);
       }
     },
     error: function (request,state,error) {
