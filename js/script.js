@@ -1,14 +1,25 @@
+
+
 function movieData(movie,target,compiled) {
   var moviedata = {
     "title":movie["title"],
     "original_title":movie["original_title"],
     "original_language":movie["original_language"],
-    "vote_average":movie["vote_average"]
-  }
+    "vote":movie["vote_average"]/2
+    }
+    var vote5 = Math.ceil(moviedata["vote"])
+    console.log(vote5);
 
-  console.log(moviedata);
+  // console.log(moviedata);
   var moviedataHtml = compiled(moviedata);
   target.append(moviedataHtml);
+  // Stars(vote5);
+  for (var i = 0; i < vote5; i++) {
+    $("#stars i").eq(i).addClass("gialla");
+    console.log("success",i);
+  }
+  // var priamstella =  $("#stars i").eq(1);
+  // console.log(priamstella);
 }
 
 function searchMovie() {
@@ -30,15 +41,17 @@ function results(search) {
       var moviesnum = data["total_results"];
       var movies = data["results"];
 
-      console.log(moviesnum);
+      // console.log(moviesnum);
       var template = $("#movie-template").html();
       var compiled = Handlebars.compile(template);
-      var target = $("#results");
+      var target = $("#resultsmovie");
       target.text("");
 
       for (var i = 0; i < movies.length; i++) {
         var movie = movies[i];
         movieData(movie,target,compiled);
+        // var movieHtml = compiled(movie);
+        // target.append(movieHtml);
       }
     },
     error: function (request,state,error) {
@@ -50,8 +63,12 @@ function results(search) {
 }
 
 function getEventListener() {
-  var btn = $("#btn_search")
-  btn.click(searchMovie)
+  var btn = $("#btn_search");
+  btn.click(function(){
+    searchMovie();
+    // searchTvseries();
+  });
+
 }
 
 function init() {
