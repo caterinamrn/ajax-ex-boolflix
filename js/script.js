@@ -34,6 +34,7 @@ function results(search) {
       var template = $("#movie-template").html();
       var compiled = Handlebars.compile(template);
       var target = $("#results");
+      target.text("");
 
       for (var i = 0; i < movies.length; i++) {
         var movie = movies[i];
