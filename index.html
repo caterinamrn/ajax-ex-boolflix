@@ -12,22 +12,25 @@
       <li>
         <span>Titolo: {{title}}</span>
         <span>Titolo Originale: {{original_title}}</span>
-        <span>Lingua Originale: {{original_language}}</span>
+        <!-- <span>Lingua Originale: {{original_language}}</span> -->
+        <img class="flag" src="{{flag}}" alt="{{original_language}}">
         <span>Voto: {{vote}}</span>
-        <span id="stars"><i class="fas fa-star {{star1}}"></i><i class="fas fa-star {{star2}}"></i><i class="fas fa-star {{star3}}"></i><i class="fas fa-star {{star4}}" ></i><i class="fas fa-star {{star5}}"></i></span>
+        <span class="stars"><i class="fas fa-star {{star1}}"></i><i class="fas fa-star {{star2}}"></i><i class="fas fa-star {{star3}}"></i><i class="fas fa-star {{star4}}" ></i><i class="fas fa-star {{star5}}"></i></span>
       </li>
     </script>
-    <!-- <script  id="tvs-template" type="text/x-handlebars-template">
+    <script  id="serietv-template" type="text/x-handlebars-template">
       <li>
         <span>Titolo: {{title}}</span>
         <span>Titolo Originale: {{original_title}}</span>
-        <span>Lingua Originale: {{original_language}}</span>
-        <span>Voto: {{vote_average}}</span>
+        <!-- <span>Lingua Originale: {{original_language}}</span> -->
+        <img class="flag" src="{{flag}}" alt="{{original_language}}">
+        <span>Voto: {{vote}}</span>
+        <span class="stars"><i class="fas fa-star {{star1}}"></i><i class="fas fa-star {{star2}}"></i><i class="fas fa-star {{star3}}"></i><i class="fas fa-star {{star4}}" ></i><i class="fas fa-star {{star5}}"></i></span>
       </li>
-    </script> -->
+    </script>
   </head>
   <body>
-    <input id="movie_search" type="text" name="movie" value="" placeholder="search movie">
+    <input id="search" type="text" name="movie" value="" placeholder="search movie">
     <button id="btn_search" type="button" name="button">Search</button>
     <h2>Movies</h2>
     <ul id="resultsmovie">

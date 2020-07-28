@@ -1,4 +1,4 @@
-
+// movies
 
 function movieData(movie,target,compiled) {
   var moviedata = {
@@ -10,14 +10,23 @@ function movieData(movie,target,compiled) {
     "star2":"",
     "star3":"",
     "star4":"",
-    "star5":""
+    "star5":"",
+    "flag": ""
     }
     var vote5 = Math.ceil(moviedata["vote"]);
     console.log(vote5);
     for (var i = 1; i <= vote5; i++) {
       moviedata["star"+i] = "gialla";
     }
-
+    if (moviedata["original_language"] == "en") {
+      moviedata["flag"] = "img/USAflag.gif";
+    }
+    else if (moviedata["original_language"] == "it") {
+      moviedata["flag"] = "img/italflag.png";
+    }
+    else if (moviedata["original_language"] == "ja") {
+      moviedata["flag"] = "img/jpflag.svg";
+    }
   // console.log(moviedata);
   var moviedataHtml = compiled(moviedata);
   target.append(moviedataHtml);
@@ -28,14 +37,8 @@ function movieData(movie,target,compiled) {
   // }
 }
 
-function searchMovie() {
-  var search = $("#movie_search").val();
-  console.log(search);
-  // var prova = "ritorno al futuro";
-  results(search);
 
-}
-function results(search) {
+function movieResults(search) {
   $.ajax({
     url:"https://api.themoviedb.org/3/search/movie",
     method:"GET",
@@ -67,12 +70,52 @@ function results(search) {
     }
   });
 }
+// tv series
+function tvseriesResults(search) {
+  $.ajax({
+    url:"https://api.themoviedb.org/3/search/movie",
+    method:"GET",
+    data: {
+      "api_key":"044d0c2aa05cc2030718c5e50899f07d",
+      "query": search
+    },
+    success: function(data,state){
+      var moviesnum = data["total_results"];
+      var movies = data["results"];
 
+      // console.log(moviesnum);
+      var template = $("#movie-template").html();
+      var compiled = Handlebars.compile(template);
+      var target = $("#resultsmovie");
+      target.text("");
+
+      for (var i = 0; i < movies.length; i++) {
+        var movie = movies[i];
+        movieData(movie,target,compiled);
+        // var movieHtml = compiled(movie);
+        // target.append(movieHtml);
+      }
+    },
+    error: function (request,state,error) {
+      console.log("request",request);
+      console.log("state",state);
+      console.log("error",error);
+    }
+  });
+}
+// button
+function search() {
+  var search = $("#earch").val();
+  console.log(search);
+  // var prova = "ritorno al futuro";
+  movieResults(search);
+  tvseriesResults(search);
+
+}
 function getEventListener() {
   var btn = $("#btn_search");
   btn.click(function(){
-    searchMovie();
-    // searchTvseries();
+    search();
   });
 
 }
