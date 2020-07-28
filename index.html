@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- movie template -->
     <script  id="movie-template" type="text/x-handlebars-template">
       <li>
         <span>Titolo: {{title}}</span>
@@ -18,10 +19,11 @@
         <span class="stars"><i class="fas fa-star {{star1}}"></i><i class="fas fa-star {{star2}}"></i><i class="fas fa-star {{star3}}"></i><i class="fas fa-star {{star4}}" ></i><i class="fas fa-star {{star5}}"></i></span>
       </li>
     </script>
+    <!-- tvseries template -->
     <script  id="serietv-template" type="text/x-handlebars-template">
       <li>
-        <span>Titolo: {{title}}</span>
-        <span>Titolo Originale: {{original_title}}</span>
+        <span>Titolo: {{name}}</span>
+        <span>Titolo Originale: {{original_name}}</span>
         <!-- <span>Lingua Originale: {{original_language}}</span> -->
         <img class="flag" src="{{flag}}" alt="{{original_language}}">
         <span>Voto: {{vote}}</span>
