@@ -5,22 +5,27 @@ function movieData(movie,target,compiled) {
     "title":movie["title"],
     "original_title":movie["original_title"],
     "original_language":movie["original_language"],
-    "vote":movie["vote_average"]/2
+    "vote":movie["vote_average"]/2,
+    "star1":"",
+    "star2":"",
+    "star3":"",
+    "star4":"",
+    "star5":""
     }
-    var vote5 = Math.ceil(moviedata["vote"])
+    var vote5 = Math.ceil(moviedata["vote"]);
     console.log(vote5);
+    for (var i = 1; i <= vote5; i++) {
+      moviedata["star"+i] = "gialla";
+    }
 
   // console.log(moviedata);
   var moviedataHtml = compiled(moviedata);
   target.append(moviedataHtml);
-  // Stars(vote5);
-  for (var i = 0; i < vote5; i++) {
-    $("#stars i:nth-child("+(i+1)+")").addClass("gialla");
 
-    console.log("success",i);
-  }
-  // var priamstella =  $("#stars i").eq(1);
-  // console.log(priamstella);
+  // for (var i = 1; i <= vote5; i++) {
+  //   $("#stars i:nth-child("+i+")").addClass("gialla");
+  //   console.log("ciclo di stelline",i);
+  // }
 }
 
 function searchMovie() {
