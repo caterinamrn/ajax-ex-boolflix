@@ -15,7 +15,8 @@ function movieData(movie,target,compiled) {
   target.append(moviedataHtml);
   // Stars(vote5);
   for (var i = 0; i < vote5; i++) {
-    $("#stars i").eq(i).addClass("gialla");
+    $("#stars i:nth-child("+(i+1)+")").addClass("gialla");
+
     console.log("success",i);
   }
   // var priamstella =  $("#stars i").eq(1);
