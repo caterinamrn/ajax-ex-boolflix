@@ -13,7 +13,10 @@
       <li>
         {{#if poster_path}}
         <img class="cover" src="{{poster}}" alt="{{name}}">
+        {{else}}
+        <img class="cover" src="img/play.webp" alt="{{name}}">
         {{/if}}
+
         <div class="info">
           <span>Titolo: {{title}}</span><br>
           <span>Titolo Originale: {{original_title}}</span><br>
@@ -29,6 +32,8 @@
       <li>
         {{#if poster_path}}
         <img class="cover" src="{{poster}}" alt="{{name}}">
+        {{else}}
+        <img class="cover" src="img/play.webp" alt="{{name}}">
         {{/if}}
         <div class="info">
           <span>Titolo: {{name}}</span><br>
