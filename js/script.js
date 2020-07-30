@@ -138,6 +138,7 @@ function tvseriesResults(search) {
     }
   });
 }
+
 // button
 function search() {
   var search = $("#search").val();
