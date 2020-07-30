@@ -12,6 +12,7 @@ function movieData(movie,target,compiled) {
     "star4":"",
     "star5":"",
     "flag": "",
+    "poster_path":movie["poster_path"],
     "poster":"https://image.tmdb.org/t/p/w185/"+movie["poster_path"]
     }
     var vote5 = Math.ceil(moviedata["vote"]);
@@ -85,6 +86,7 @@ function tvserieData(serie,target,compiled) {
     "star4":"",
     "star5":"",
     "flag": "",
+    "poster_path":serie["poster_path"],
     "poster":"https://image.tmdb.org/t/p/w185/"+serie["poster_path"]
     }
     var vote5 = Math.ceil(seriedata["vote"]);
